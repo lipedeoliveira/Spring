@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media de Notas</title>
+</head>
+<body>
+    <h1>Calculadora de notas</h1>
+
+    <form action="/calcular" method="post">
+        <label>Nome do aluno</label><br>
+        <input type="text" name="nome" required ><br><br>
+        
+        <label>Notas (separadas por ponto e virgula):</label><br>
+        <input type="text" name="notas" placeholder="" required>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    <p th:if="${erro}" th:text="${erro}" style="color:red"></p>
+
+<div th:if="${media}">
+    <h2>Resultado</h2>
+    <p>Aluno: <strong th:text="${nome}"></strong></p>
+    <p>Media: <strong th:text="${media}"></strong></p>
+    <p>Situacao: <strong th:text="${situacao}"></strong></p>
+</div>
+
+</body>
+</html>
